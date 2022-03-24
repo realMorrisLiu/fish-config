@@ -14,7 +14,10 @@ if status is-interactive
 
     # Load cargo
     bass source $HOME/.cargo/env
-end
 
-# Load rbenv
-status --is-interactive; and rbenv init - fish | source
+    # Load rbenv
+    rbenv init - fish | source
+
+    # Add PATH
+    fish_add_path /opt/homebrew/opt/make/libexec/gnubin (go env GOPATH)/bin $HOME/.local/bin
+end
